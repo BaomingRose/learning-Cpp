@@ -1,0 +1,7 @@
+﻿  const.cpp
+  内联函数.cpp
+  引用1.cpp
+  引用2.cpp
+  正在生成代码...
+c:\users\lenovo\source\repos\c++0712\c++0712\引用1.cpp(87): warning C4172: 返回局部变量或临时变量的地址: ret
+  C++0712.vcxproj -> C:\Users\lenovo\source\repos\C++0712\Debug\C++0712.exe
