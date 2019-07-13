@@ -1,0 +1,118 @@
+类与对象（上）
+	1.类与对象的初步认知
+	2.类的引入
+	3.类的定义
+	4.类的作用域
+	5.类的实例化
+	6.类的访问限定符及封装
+	7.类的对象大小的计算
+	8.类成员函数的this指针
+//C语言中结构体 数据和操作结构体数据方法 分离开
+//类
+//class Student
+struct Student
+{
+	void InitStudent()
+	{
+		strcpy(_name, name);
+		strcpy(_gender, gender);
+		_age = age;
+	}
+	void PrintStudent()
+	{
+		cout << _name << ":" << _gender << ":" << _age << endl;
+	}
+	char _name[20];
+	char _gender[3];
+	int _age;
+};
+int main()
+{
+	Student s1;
+	Student s2;
+	Student s3;
+	
+	s1.InitStudent("Peter", "男",40);
+	s2.InitStudent("静静", "女", 41);
+	s3.InitStudent("Summer", "公", 21);
+	
+	s1.PrintStudent();
+	s2.PrintStudent();
+	s3.PrintStudent();
+	
+	return 0;
+}
+
+
+#pragma once
+
+class Person
+{
+	void InitStudent();
+	void PrintStudent();
+	
+	char _name[20];
+	char _gender[3];
+	int _age;
+};//头文件声明
+
+#include"Person.h"
+void Person::InitStudent()
+	{
+		strcpy(_name, name);
+		strcpy(_gender, gender);
+		_age = age;
+	}
+void Person::PrintStudent()
+	{
+		cout << _name << ":" << _gender << ":" << _age << endl;
+	}
+
+类的两种定义方式：
+1.将类的声明与定义全部放在类中 -- 成员函数默认为内联函数
+2.将类的声明防在头文件中，类的定义防在源文件中
+	成员函数在外部定义时，在函数名字前必须增加类的名字以及作用域限定符
+
+C++基于面向对象：面向过程，面向对象
+面向对象：封装、继承、多态
+1.什么时封装
+	将一些事物内部实现细节；隐藏起来，向外暴露一些共有接口让其与其他对象进行交互
+	
+2.C++中如何实现封装
+	类：将事物属性和方法包装在一起
+	访问权限：确认哪些属性和方法可以在外部（类的外部）直接被使用
+	private/protected：该成员不能直接在类外被访问
+	public
+	class 默认访问权限是 private
+		成员变量相当于是类成员函数的全局变量
+	struct：默认访问权限是 public --兼容C语言
+
+类定义了一个新的作用域
+（四个作用域：全局、局部、命名空间、类）
+
+类 ---> 实例化 ---> 对象
+
+如何计算类的大小
+与C语言中求结构体的大小是完全相同的（成员变量之和）
+空类一个字节 ---> 区分该类创建的不同对象
+主流编译器一个字节
+
+this指针
+拿C语言的结构体来类比：若修改某个结构体变量的成员变量，需要把结构体指针
+						传进函数才确定修改哪个结构体的成员变量
+C++编译器给每个成员函数增加了一个隐藏的指针参数，让指针指向当前对象，
+在函数体中所有成员变量的操作，都是通过该指针去访问。只不过所有的操作对
+用户是透明的即用户不需要来传递，编译器自动完成
+
+this指针的特性
+1.类型：类名* const		不能改变指向
+2.只能在成员函数内部使用
+3.this指针本质上是一个成员函数的形参，是对象调用成员函数时，
+		将对象地址作为实参传递给this形参。所以对象中不存储this指针
+4。this指针是成员函数第一个隐含的指针形参，大多情况由编译器通过ecx寄存器
+		自动传递，不需要用户传递。（也有参数压栈的方式传递）
+
+
+
+
+
