@@ -1,0 +1,114 @@
+实现一个通用的加法函数--通用：加法函数对于任意类型都可以处理
+
+模板：
+
+飞机模型  ---->	塑料 ——————> 塑料飞机
+				铁   ——————> 铁飞机
+				金水 ——————> 金飞机
+				
+泛型编程：编写与类型无关的通用代码， 是代码复用的一种手段。模板是泛型编程的基础。
+模板——————>	函数模板
+	|		template<typename T>	//模板参数列表
+	|		T Add(T left, T right)
+	|		{
+	|			return left + right;
+	|		}
+	|		
+	|
+	|		类模板
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+STL:是C++中的标准模板库（standard template libaray）
+1.对常见数据结构的封装
+2.通用算法：与类型无关（函数模板） + 与数据结构无关
+STL六大组件：
+容器（本质：常见数据结构封装）
+算法：通用算法	与数据结构相关的算法
+迭代器
+适配器	：容器适配stack	queue	priority_queue
+函数对象（仿函数）：可以像函数调用一样使用的对象
+空间配置器：管理空间
+
+容器：序列式容器：对线性数据结构的封装
+string	：管理字符串
+array：静态的顺序表
+vector	：动态的顺序表
+list：带头结点的双向循环链表
+forward_list：带头结点的循环单链表
+deque：动态的二维数组	（了解）
+
+容器适配器：stack和queue priority_queue
+
+STL阶段一：怎么应用STL
+string类
+1.为什么需要有string
+2.string常见接口的应用说明
+	构造与销毁
+	容量操作
+	void resize(size_t newSize, char ch);
+	newSize <= oldSize:直接将有效元素个数改变到newSize
+	newSize >  oldSize--newSize <= capacity:直接使用ch填充多出的字符
+						newSize >  capacity:需要扩容：开辟新空间、拷贝元素以及填充ch、释放旧空间
+	void reserve(size_t newCapacity);	只改变容量大小，不改变有效元素个数
+	newcapacity > oldcapacity:改变底层空间大小（扩容）
+	newcapacity <=oldcapacity:忽略
+	
+	元素的访问操作
+	string s("hello")
+		   rend		  rbegin
+			h e l l o \0
+		   begin	  end
+	begin、end正向迭代器：++操作--->迭代器从begin向end的方向移动
+	rbegin、rend反向迭代器：++操作类似正向迭代器--的操作
+	
+	修改操作
+	特殊操作
+	截取：
+			string substr (size_t pos = 0, size_t n = npos) const;
+	迭代器
+	string::iterator it = s.begin();	auto it = s.begin();
+	while(it != s.end())
+	{
+		//将it当成指针来用
+		*it； ++it；
+	}
+
+3.string如何解决浅拷贝
+
+
+
+vector:底层结构---动态顺序表
+	|	1	2	3	4	5	|	|	|	|	|	|			
+	   _start			_finish					_endofstorage
+	   begin			end
+	   rend				rbegin
+	   T*				T* 
+构造、拷贝和销毁
+
+	vector<int> v1;
+	vector<int> v2(10, 5);
+	//区间构造
+	vector<int> v3(v2.begin(), v2.end());
+	
+	int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+	vector<int> v4(array, array + sizeof(array) / sizeof(array[0]));
+	vector<int> v5(v4);
+容量
+元素访问
+修改
+迭代器
+
+
+
