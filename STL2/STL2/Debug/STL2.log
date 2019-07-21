@@ -1,0 +1,4 @@
+﻿  vector.cpp
+c:\users\lenovo\source\repos\stl2\stl2\vector.cpp(150): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\lenovo\source\repos\stl2\stl2\vector.cpp(155): warning C4018: “<”: 有符号/无符号不匹配
+  STL2.vcxproj -> C:\Users\lenovo\source\repos\STL2\Debug\STL2.exe
