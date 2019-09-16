@@ -1,0 +1,6 @@
+﻿  main.cpp
+d:\vs\string模拟实现\string模拟实现\string.h(156): warning C4018: “>=”: 有符号/无符号不匹配
+d:\vs\string模拟实现\string模拟实现\string.h(169): warning C4018: “>=”: 有符号/无符号不匹配
+d:\vs\string模拟实现\string模拟实现\string.h(182): warning C4018: “>=”: 有符号/无符号不匹配
+d:\vs\string模拟实现\string模拟实现\string.h(235): warning C4018: “<”: 有符号/无符号不匹配
+  string模拟实现.vcxproj -> D:\VS\string模拟实现\Debug\string模拟实现.exe
